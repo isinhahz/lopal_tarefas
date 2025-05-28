@@ -5,8 +5,12 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.UUID;
 
+import br.dev.isabelle.tarefas.dao.FuncionarioDAO;
+import br.dev.isabelle.tarefas.model.Funcionario;
 import br.dev.isabelle.tarefas.model.Tarefas;
+import br.dev.isabelle.tarefas.ui.FuncionarioFrame;
 
 public class Main {
 	
@@ -14,12 +18,29 @@ public class Main {
     
 	public static void main(String[] args) {
 		
-		Tarefas tarefa1 = new Tarefas("Lavar a louça");
+		new FuncionarioFrame();
 		
-		//escreverArquivo();
-		//lerArquivo();
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid);
 		
-
+		String escola = "Senai Jandira";
+		String cidade = escola.substring(6, 13);
+		System.out.println(cidade);
+		
+		String uuid8 = uuid.toString().substring(0, 8);
+		System.out.println(uuid8);
+		
+		Funcionario f = new Funcionario("Pedro", "Programador"); 
+		f.setSetor("TI");
+		
+		Funcionario f2 = new Funcionario();
+		f2.setNome("Carlos Augusto");
+		f2.setCargo("Analista de Sistemas");
+		f2.setSetor("TI");
+		
+		FuncionarioDAO dao = new FuncionarioDAO(f2);
+		dao.salvar();
+		
 	}
 	
 	private static void escreverArquivo() {
