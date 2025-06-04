@@ -2,6 +2,8 @@ package br.dev.isabelle.tarefas.model;
 
 import java.util.UUID;
 
+import br.dev.isabelle.tarefas.utils.Utils;
+
 public class Funcionario {
 
 	private String nome;
@@ -11,16 +13,18 @@ public class Funcionario {
 	
 	public Funcionario(String nome) {
 		this.nome = nome;
-		UUID uuid = UUID.randomUUID();
-		String uuid8 = uuid.toString().substring(0, 8);
-		this.matricula = uuid8;
+		this.matricula = Utils.gerarUUID8();
 	}
 	
 	public Funcionario(String nome, String cargo) {
 		this.nome = nome;
 		this.cargo = cargo;
-		this.matricula = uuid8;
+		this.matricula = Utils.gerarUUID8();
 		
+	}
+	
+	public Funcionario() {
+		this.matricula = Utils.gerarUUID8();
 	}
 
 	public String getNome() {

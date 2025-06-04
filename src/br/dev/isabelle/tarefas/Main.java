@@ -23,10 +23,6 @@ public class Main {
 		UUID uuid = UUID.randomUUID();
 		System.out.println(uuid);
 		
-		String escola = "Senai Jandira";
-		String cidade = escola.substring(6, 13);
-		System.out.println(cidade);
-		
 		String uuid8 = uuid.toString().substring(0, 8);
 		System.out.println(uuid8);
 		
@@ -65,7 +61,7 @@ public class Main {
 			bw.flush();
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 	}
 
